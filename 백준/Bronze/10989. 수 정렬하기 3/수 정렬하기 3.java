@@ -1,24 +1,20 @@
 import java.util.*;
 import java.io.*;
-
-public class Main {
-	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringBuilder sb = new StringBuilder();
-
-		int N = Integer.parseInt(br.readLine());
-		int arr[] = new int[N];
-
-		for(int i=0; i<N; i++) {
-			arr[i] = Integer.parseInt(br.readLine());
-		}
-
-		Arrays.sort(arr);
-
-		for(int num : arr) {
-			sb.append(num).append('\n');
-		}
-
-		System.out.println(sb);
-	}
+public class Main{
+    public static void main(String[] args) throws IOException{
+        int[] count = new int[10001];
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(br.readLine());
+        for(int i = 0 ; i<N ; i++){
+            count[Integer.parseInt(br.readLine())]++;
+        }
+        StringBuilder sb = new StringBuilder();
+        for(int i = 1; i<10001; i++){
+            while(count[i]>0){
+                sb.append(i).append("\n");
+                count[i]--;
+            }
+        }
+        System.out.print(sb);
+    }
 }
